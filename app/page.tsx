@@ -267,18 +267,38 @@ export default function Home() {
             Be the first to know when ServerCraft launches. Early members get 3 months free Pro! 🎉
           </p>
           
-          {/* Tally Form Embed */}
+          {/* Simple Email Form */}
           <div className="bg-slate-900/50 border border-slate-700/50 rounded-xl p-8">
-            <iframe
-              src="https://tally.so/embed/mBz0Zj?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-              width="100%"
-              height="400"
-              frameBorder="0"
-              marginHeight={0}
-              marginWidth={0}
-              title="Join ServerCraft Waitlist"
-              className="rounded-lg"
-            ></iframe>
+            <form action="https://formspree.io/f/xdkoaple" method="POST" className="max-w-md mx-auto">
+              <div className="space-y-4">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  required
+                  className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="your@email.com"
+                  required
+                  className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                />
+                <textarea
+                  name="message"
+                  placeholder="What servers do you run? (optional)"
+                  rows={3}
+                  className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                ></textarea>
+                <button
+                  type="submit"
+                  className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-3 px-6 rounded-lg transition shadow-lg shadow-emerald-500/25"
+                >
+                  Join Waitlist →
+                </button>
+              </div>
+            </form>
           </div>
 
           <p className="text-slate-400 text-sm mt-4">
