@@ -31,10 +31,10 @@ export async function POST(request: Request) {
     });
 
     if (error) {
-      console.error('Resend error:', error);
+      console.error('Resend error details:', error);
       return NextResponse.json({ 
         success: false, 
-        error: 'Failed to send email' 
+        error: `Failed to send email: ${error.message || JSON.stringify(error)}` 
       }, { status: 500 });
     }
 
