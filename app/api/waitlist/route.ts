@@ -16,7 +16,8 @@ export async function POST(request: Request) {
     }
 
     // Clean and validate notification email
-    const notificationEmail = (process.env.NOTIFICATION_EMAIL || 'kangarudemc@gmail.com').trim().replace(/['"]/g, '');
+    // Note: In Resend testing mode, can only send to verified account email
+    const notificationEmail = 'jrsschroeder@gmail.com';
 
     // Send email to you
     const { data, error } = await resend.emails.send({
