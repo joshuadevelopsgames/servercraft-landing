@@ -42,7 +42,9 @@ export async function POST(request: Request) {
       }, { status: 500 });
     }
 
-    // Optional: Also send confirmation email to the user
+    // Optional: Send confirmation email to user (only works if domain verified)
+    // Commenting out for testing mode - will enable after domain verification
+    /*
     await resend.emails.send({
       from: 'ServerCraft <onboarding@resend.dev>',
       to: [email],
@@ -58,6 +60,7 @@ export async function POST(request: Request) {
         <p><small>ServerCraft - AI-Powered Minecraft Server Console</small></p>
       `,
     });
+    */
 
     return NextResponse.json({ 
       success: true,
