@@ -15,10 +15,13 @@ export async function POST(request: Request) {
       }, { status: 400 });
     }
 
+    // Clean and validate notification email
+    const notificationEmail = (process.env.NOTIFICATION_EMAIL || 'kangarudemc@gmail.com').trim().replace(/['"]/g, '');
+
     // Send email to you
     const { data, error } = await resend.emails.send({
       from: 'ServerCraft Waitlist <onboarding@resend.dev>',
-      to: [process.env.NOTIFICATION_EMAIL || 'your-email@example.com'],
+      to: [notificationEmail],
       subject: `🎮 New ServerCraft Waitlist Sign-up: ${name}`,
       html: `
         <h2>New Waitlist Sign-up! 🎉</h2>
